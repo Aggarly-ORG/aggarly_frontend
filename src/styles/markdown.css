@@ -1,0 +1,181 @@
+/* =========================================================================
+   AGGARLY LUXURY EDITORIAL MARKDOWN STYLING
+   ========================================================================= */
+
+.aggarly-markdown-body {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--text-secondary);
+  max-width: 860px;
+}
+
+.aggarly-markdown-body > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.aggarly-md-p {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+
+.aggarly-md-h1,
+.aggarly-md-h2,
+.aggarly-md-h3,
+.aggarly-md-h4 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.aggarly-md-h1 { font-size: 20px; color: #c59b27; }
+.aggarly-md-h2 { font-size: 18px; }
+.aggarly-md-h3 { font-size: 16px; }
+.aggarly-md-h4 { font-size: 15px; }
+
+.aggarly-md-strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.aggarly-md-em {
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.aggarly-md-ul,
+.aggarly-md-ol {
+  margin: 10px 0 14px 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aggarly-md-ul {
+  list-style-type: disc;
+}
+
+.aggarly-md-ol {
+  list-style-type: decimal;
+}
+
+.aggarly-md-li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 2px;
+}
+
+.aggarly-md-li::marker {
+  color: #dfb15b;
+}
+
+.aggarly-md-blockquote {
+  margin: 14px 0;
+  padding: 12px 18px;
+  background: var(--accent-gold-wash);
+  border-left: 3.5px solid var(--accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #785a10;
+}
+
+.aggarly-md-blockquote p {
+  margin-bottom: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.aggarly-md-inline-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--bg-bubble-incoming);
+  color: var(--accent-coral-deep);
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--border-hairline);
+}
+
+.aggarly-md-pre {
+  margin: 14px 0;
+  padding: 14px 18px;
+  background: #18181b;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  border: 1px solid rgba(223, 177, 91, 0.2);
+  box-shadow: var(--shadow-warm-sm);
+}
+
+.aggarly-md-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #f7ede2;
+}
+
+.aggarly-md-link {
+  color: #dfb15b;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed rgba(223, 177, 91, 0.45);
+  transition: all 0.2s ease;
+}
+
+.aggarly-md-link:hover {
+  color: #c59b27;
+  border-bottom-style: solid;
+  border-bottom-color: #c59b27;
+}
+
+.aggarly-md-hr {
+  border: none;
+  height: 1px;
+  background: var(--border-hairline);
+  margin: 18px 0;
+}
+
+.aggarly-md-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 14px 0;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}
+
+.aggarly-md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.aggarly-md-thead {
+  background: var(--bg-warm);
+}
+
+.aggarly-md-th {
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.aggarly-md-td {
+  padding: 9px 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.aggarly-md-tr:last-child .aggarly-md-td {
+  border-bottom: none;
+}

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aggarly | Notification Test & Live Inbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-surface: rgba(17, 24, 39, 0.85);
+      --bg-surface-elevated: rgba(30, 41, 59, 0.7);
+      --bg-card: rgba(15, 23, 42, 0.9);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(217, 119, 6, 0.35);
+      --accent-gold: #d97706;
+      --accent-gold-light: #f59e0b;
+      --accent-gold-wash: rgba(217, 119, 6, 0.12);
+      --accent-blue: #38bdf8;
+      --accent-blue-wash: rgba(56, 189, 248, 0.12);
+      --accent-green: #10b981;
+      --accent-green-wash: rgba(16, 185, 129, 0.12);
+      --accent-red: #ef4444;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #151f33 0%, var(--bg-dark) 70%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+
+    /* Top Bar Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-gold), #b45309);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--accent-gold-light);
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--accent-green-wash);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--accent-green);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Main Container Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+      flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Control Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .glass-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Inputs & Form Elements */
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), #b45309);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #f59e0b, var(--accent-gold));
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.8);
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* Quick Test Preset Buttons */
+    .preset-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .preset-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: var(--accent-gold-wash);
+      border-color: var(--border-accent);
+      transform: translateX(4px);
+    }
+
+    .preset-icon {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preset-details {
+      flex: 1;
+    }
+
+    .preset-title {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+
+    .preset-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Right Main Feed */
+    .feed-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Feed Header & Controls */
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stats-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .stat-badge .count {
+      color: var(--accent-gold-light);
+      font-size: 15px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-gold);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+    }
+
+    /* Notification Cards */
+    .notification-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 300px;
+    }
+
+    .notification-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      gap: 16px;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .notification-card.unread {
+      border-color: rgba(217, 119, 6, 0.35);
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.05) 0%, rgba(15, 23, 42, 0.9) 100%);
+    }
+
+    .notification-card.unread::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--accent-gold);
+    }
+
+    .notification-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .notification-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+    }
+
+    .notification-body {
+      flex: 1;
+    }
+
+    .notification-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .notification-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .meta-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-alerts { background: var(--accent-gold-wash); color: var(--accent-gold-light); }
+    .badge-booking { background: var(--accent-blue-wash); color: var(--accent-blue); }
+    .badge-payment { background: var(--accent-green-wash); color: var(--accent-green); }
+    .badge-channel { background: rgba(255, 255, 255, 0.08); color: var(--text-secondary); }
+
+    .notification-time {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .notification-message {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .notification-payload {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: #94a3b8;
+      overflow-x: auto;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .notification-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    /* Floating Toast */
+    #toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    .toast {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-gold);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      color: #fff;
+      font-size: 13px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: slideIn 0.3s ease;
+      min-width: 280px;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🔔</div>
+      <div class="brand-text">
+        <h1>Aggarly Notification Test Center</h1>
+        <span>Real-time In-App Push & Scheduler Alert Inspector</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="status-pill" id="live-status-pill">
+        <span class="status-dot"></span>
+        <span id="live-status-text">Connected (Live Polling)</span>
+      </div>
+      <a href="http://localhost:3000/" class="btn btn-secondary btn-sm" target="_blank">Open Main App ↗</a>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <div class="dashboard-grid">
+
+    <!-- Left Sidebar: Controls & Triggers -->
+    <aside class="sidebar">
+
+      <!-- Authentication Config -->
+      <div class="glass-card">
+        <div class="card-title">
+          <span>🔑 User Authentication</span>
+          <span style="font-size: 11px; color: var(--accent-gold-light); cursor: pointer;" onclick="refreshJwtToken()">Reload Token</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">JWT Bearer Token</label>
+          <input type="password" id="jwt-token-input" class="form-input" placeholder="Bearer eyJhbGciOi..." />
+        </div>
+        <button class="btn btn-secondary btn-sm btn-full" onclick="saveJwtToken()">Save & Reconnect</button>
+      </div>
+
+      <!-- Quick Preset Triggers -->
+      <div class="glass-card">
+        <div class="card-title">
+          <span>⚡ Send Test Alerts</span>
+        </div>
+        <div class="preset-list">
+          <div class="preset-btn" onclick="sendTestNotification('💧 Hydration Reminder', 'Time to drink water and stay refreshed! (Triggered by Automation)', 'ALERTS', 'AUTOMATION_REMINDER')">
+            <div class="preset-icon">💧</div>
+            <div class="preset-details">
+              <div class="preset-title">Hydration Reminder</div>
+              <div class="preset-desc">Simulate scheduled health reminder</div>
+            </div>
+          </div>
+
+          <div class="preset-btn" onclick="sendTestNotification('🏡 Booking Confirmed!', 'Reservation #BK-9281 confirmed for Luxury Penthouse.', 'BOOKING', 'BOOKING.CONFIRMED')">
+            <div class="preset-icon">🏡</div>
+            <div class="preset-details">
+              <div class="preset-title">Booking Confirmed</div>
+              <div class="preset-desc">Reservation confirmed event</div>
+            </div>
+          </div>
+
+          <div class="preset-btn" onclick="sendTestNotification('💰 Host Earnings Ready', 'Your monthly earnings report is available: $3,450.00 USD.', 'ALERTS', 'HOST_EARNINGS_REPORT')">
+            <div class="preset-icon">💰</div>
+            <div class="preset-details">
+              <div class="preset-title">Host Earnings Report</div>
+              <div class="preset-desc">Monthly payout calculation alert</div>
+            </div>
+          </div>
+
+          <div class="preset-btn" onclick="sendTestNotification('💳 Payment Succeeded', 'Payment of $420.00 processed successfully via Visa ****4242.', 'PAYMENT', 'PAYMENT.SUCCEEDED')">
+            <div class="preset-icon">💳</div>
+            <div class="preset-details">
+              <div class="preset-title">Payment Succeeded</div>
+              <div class="preset-desc">Stripe payment confirmation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Notification Form -->
+      <div class="glass-card">
+        <div class="card-title">
+          <span>✉️ Custom Test Notification</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Alert Title</label>
+          <input type="text" id="custom-title" class="form-input" value="Custom System Alert" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select id="custom-category" class="form-select">
+            <option value="ALERTS">ALERTS</option>
+            <option value="BOOKING">BOOKING</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="SECURITY">SECURITY</option>
+            <option value="MESSAGES">MESSAGES</option>
+            <option value="CLEANING">CLEANING</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message Body</label>
+          <textarea id="custom-message" class="form-textarea">This is a custom alert test message from the inspector.</textarea>
+        </div>
+        <button class="btn btn-primary btn-full" onclick="sendCustomNotification()">🚀 Dispatch Notification</button>
+      </div>
+
+    </aside>
+
+    <!-- Right Feed: Live Notifications -->
+    <main class="glass-card feed-container">
+
+      <!-- Feed Controls -->
+      <div class="feed-header">
+        <div class="stats-summary">
+          <div class="stat-badge">
+            <span>Total:</span>
+            <span class="count" id="total-count">0</span>
+          </div>
+          <div class="stat-badge">
+            <span>Unread:</span>
+            <span class="count" style="color: var(--accent-gold-light);" id="unread-count">0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="filter-tabs">
+            <button class="tab-btn active" id="tab-all" onclick="setFilter('all')">All</button>
+            <button class="tab-btn" id="tab-unread" onclick="setFilter('unread')">Unread</button>
+          </div>
+
+          <button class="btn btn-secondary btn-sm" onclick="fetchNotifications()">🔄 Refresh</button>
+          <button class="btn btn-secondary btn-sm" onclick="markAllAsRead()">✓ Mark All Read</button>
+        </div>
+      </div>
+
+      <!-- Notification List Items -->
+      <div class="notification-list" id="notifications-wrapper">
+        <div class="empty-state">
+          <div class="empty-icon">📭</div>
+          <p>Loading notifications...</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <script>
+    const API_BASE = "http://localhost:8081/api/v1";
+    let currentFilter = 'all';
+    let previousNotificationIds = new Set();
+    let isInitialLoad = true;
+
+    // 1. Token Management
+    function getJwtToken() {
+      const stored = localStorage.getItem("aggarly_jwt_token");
+      if (stored) return stored.startsWith("Bearer ") ? stored : `Bearer ${stored}`;
+      return "Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJHVUVTVCJdLCJ1c2VySWQiOiI4Y2QzNGJmZS0zZDk4LTQ2ZDMtOGU1Yi1hYTBlMmJlN2ZmMWEiLCJzdWIiOiJlc3NhbWhvc3NhbTUzMEBnbWFpbC5jb20iLCJpYXQiOjE3ODY3NDgwNTIsImV4cCI6MTc4Njc0ODk1Mn0.glSS2JNTDMLJ4Ly3DeyfR4fwHjmlgnVOVgpXe5sqiuy3BzhJl92nMrJEtLZebdqe";
+    }
+
+    function initTokenInput() {
+      const input = document.getElementById("jwt-token-input");
+      input.value = getJwtToken().replace("Bearer ", "");
+    }
+
+    function saveJwtToken() {
+      const val = document.getElementById("jwt-token-input").value.trim();
+      if (val) {
+        localStorage.setItem("aggarly_jwt_token", val);
+        showToast("JWT Token saved successfully!");
+        fetchNotifications();
+      }
+    }
+
+    function refreshJwtToken() {
+      initTokenInput();
+      fetchNotifications();
+    }
+
+    // 2. Fetch Notifications
+    async function fetchNotifications() {
+      const token = getJwtToken();
+      const unreadOnly = currentFilter === 'unread';
+      try {
+        const res = await fetch(`${API_BASE}/notifications?unreadOnly=${unreadOnly}&page=0&size=50`, {
+          headers: { "Authorization": token }
+        });
+
+        if (!res.ok) {
+          throw new Error(`API error: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const list = data.data || [];
+        renderNotifications(list);
+        updateUnreadSummary();
+
+        // Check for new notifications to play sound/toast
+        const currentIds = new Set(list.map(n => n.id));
+        if (!isInitialLoad) {
+          list.forEach(n => {
+            if (!previousNotificationIds.has(n.id) && !n.read) {
+              playChime();
+              showToast(`🔔 New Alert: ${n.title}`);
+            }
+          });
+        }
+        previousNotificationIds = currentIds;
+        isInitialLoad = false;
+
+      } catch (err) {
+        console.warn("Fetch notifications failed:", err);
+        document.getElementById("notifications-wrapper").innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">⚠️</div>
+            <p style="color: var(--accent-red); font-weight: 600;">Failed to fetch notifications.</p>
+            <p style="font-size: 12px; margin-top: 6px;">Make sure the Spring Boot backend is running on http://localhost:8081.</p>
+          </div>
+        `;
+      }
+    }
+
+    async function updateUnreadSummary() {
+      const token = getJwtToken();
+      try {
+        const res = await fetch(`${API_BASE}/notifications/unread-summary`, {
+          headers: { "Authorization": token }
+        });
+        if (res.ok) {
+          const summary = await res.json();
+          document.getElementById("unread-count").innerText = summary.unreadCount || 0;
+        }
+      } catch (e) {}
+    }
+
+    // 3. Render Notifications
+    function renderNotifications(list) {
+      document.getElementById("total-count").innerText = list.length;
+      const wrapper = document.getElementById("notifications-wrapper");
+
+      if (!list || list.length === 0) {
+        wrapper.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📭</div>
+            <p>No notifications found in this view.</p>
+            <p style="font-size: 12px; margin-top: 4px;">Click any preset on the left to send an alert!</p>
+          </div>
+        `;
+        return;
+      }
+
+      wrapper.innerHTML = list.map(item => {
+        const icon = getCategoryIcon(item.category);
+        const categoryClass = `badge-${(item.category || 'alerts').toLowerCase()}`;
+        const timeAgo = formatTimeAgo(item.createdAt);
+
+        return `
+          <div class="notification-card ${!item.read ? 'unread' : ''}" id="card-${item.id}">
+            <div class="notification-icon-box">${icon}</div>
+            <div class="notification-body">
+              <div class="notification-header">
+                <div class="notification-title">${escapeHtml(item.title)}</div>
+                <div class="meta-badges">
+                  <span class="badge ${categoryClass}">${item.category || 'ALERT'}</span>
+                  <span class="badge badge-channel">${item.channel || 'IN_APP'}</span>
+                  <span class="notification-time">${timeAgo}</span>
+                </div>
+              </div>
+              <div class="notification-message">${escapeHtml(item.message)}</div>
+
+              ${item.dataJson && item.dataJson !== '{}' ? `
+                <div class="notification-payload" id="payload-${item.id}">${escapeHtml(item.dataJson)}</div>
+              ` : ''}
+
+              <div class="notification-actions">
+                ${!item.read ? `
+                  <button class="btn btn-secondary btn-sm" onclick="markAsRead('${item.id}')">✓ Mark Read</button>
+                ` : `
+                  <span style="font-size: 11px; color: var(--text-muted);">✓ Read</span>
+                `}
+                ${item.dataJson && item.dataJson !== '{}' ? `
+                  <button class="btn btn-secondary btn-sm" onclick="togglePayload('${item.id}')">{ } Data</button>
+                ` : ''}
+                <button class="btn btn-danger btn-sm" onclick="deleteNotification('${item.id}')">Delete</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function getCategoryIcon(cat) {
+      switch ((cat || '').toUpperCase()) {
+        case 'BOOKING': return '🏡';
+        case 'PAYMENT': return '💳';
+        case 'SECURITY': return '🔒';
+        case 'MESSAGES': return '💬';
+        case 'CLEANING': return '✨';
+        case 'REVIEWS': return '⭐';
+        default: return '🔔';
+      }
+    }
+
+    function formatTimeAgo(dateStr) {
+      if (!dateStr) return '';
+      const date = new Date(dateStr);
+      const diff = Math.floor((Date.now() - date.getTime()) / 1000);
+      if (diff < 60) return 'Just now';
+      if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+      return date.toLocaleDateString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+
+    function togglePayload(id) {
+      const el = document.getElementById(`payload-${id}`);
+      if (el) {
+        el.style.display = el.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+
+    // 4. Notification API Actions
+    async function sendTestNotification(title, message, category, type) {
+      const token = getJwtToken();
+      try {
+        const res = await fetch(`${API_BASE}/notifications/test-send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+          },
+          body: JSON.stringify({
+            title,
+            message,
+            category,
+            type,
+            dataJson: JSON.stringify({ triggeredAt: new Date().toISOString(), source: "Test Inspector" })
+          })
+        });
+
+        if (res.ok) {
+          showToast(`Dispatched: ${title}`);
+          fetchNotifications();
+        } else {
+          showToast("Failed to dispatch test notification");
+        }
+      } catch (e) {
+        showToast("Error sending notification");
+      }
+    }
+
+    function sendCustomNotification() {
+      const title = document.getElementById("custom-title").value.trim();
+      const category = document.getElementById("custom-category").value;
+      const message = document.getElementById("custom-message").value.trim();
+
+      if (!title || !message) {
+        alert("Please enter both a title and message body.");
+        return;
+      }
+
+      sendTestNotification(title, message, category, "CUSTOM_ALERT");
+    }
+
+    async function markAsRead(id) {
+      const token = getJwtToken();
+      try {
+        await fetch(`${API_BASE}/notifications/${id}/read`, {
+          method: "PATCH",
+          headers: { "Authorization": token }
+        });
+        fetchNotifications();
+      } catch (e) {}
+    }
+
+    async function markAllAsRead() {
+      const token = getJwtToken();
+      try {
+        await fetch(`${API_BASE}/notifications/read-all`, {
+          method: "PATCH",
+          headers: { "Authorization": token }
+        });
+        showToast("All notifications marked as read.");
+        fetchNotifications();
+      } catch (e) {}
+    }
+
+    async function deleteNotification(id) {
+      const token = getJwtToken();
+      try {
+        await fetch(`${API_BASE}/notifications/${id}`, {
+          method: "DELETE",
+          headers: { "Authorization": token }
+        });
+        showToast("Notification deleted.");
+        fetchNotifications();
+      } catch (e) {}
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.getElementById("tab-all").classList.toggle("active", filter === 'all');
+      document.getElementById("tab-unread").classList.toggle("active", filter === 'unread');
+      fetchNotifications();
+    }
+
+    // 5. Sound Chime & Toast
+    function playChime() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15); // A5
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.35);
+      } catch (e) {}
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById("toast-container");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span>🔔</span> <span>${escapeHtml(msg)}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // 6. Initialization & Auto-Polling
+    initTokenInput();
+    fetchNotifications();
+    setInterval(fetchNotifications, 2500);
+  </script>
+</body>
+</html>

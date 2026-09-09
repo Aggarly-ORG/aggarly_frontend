@@ -1,0 +1,52 @@
+:root {
+  /* Ultra-Luxury Obsidian & Champagne Gold Design Tokens */
+  --bg-canvas: #ffffff;
+  --bg-warm: #faf9f6;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-bubble-incoming: #f5f4f0;
+  --bg-bubble-outgoing: #18181b;
+
+  --border-hairline: #e8e6e1;
+  --border-subtle: #eeece7;
+
+  /* Luxury Champagne & Regal Gold */
+  --accent-gold: #c59b27;
+  --accent-gold-bright: #dfb15b;
+  --accent-gold-deep: #9e7819;
+  --accent-gold-wash: #fbf7ec;
+  --accent-gold-light: #fefdf9;
+
+  /* Primary Accent: Rich Obsidian Noir with Gilded Gold Highlights */
+  --accent-coral: #18181b;
+  --accent-coral-bright: #dfb15b;
+  --accent-coral-deep: #09090b;
+  --accent-coral-wash: #fbf7ec;
+  --accent-coral-light: #fdfbf7;
+
+  --accent-sage: #1e4d3f;
+  --accent-sage-wash: #edf4f1;
+
+  --text-primary: #121214;
+  --text-secondary: #52525b;
+  --text-tertiary: #a1a1aa;
+  --state-error: #dc2626;
+
+  /* Shadows */
+  --shadow-warm-sm: 0 2px 8px rgba(18, 18, 20, 0.04);
+  --shadow-warm-md: 0 6px 20px rgba(18, 18, 20, 0.08);
+  --shadow-warm-lg: 0 14px 40px rgba(18, 18, 20, 0.14);
+  --shadow-coral-btn: 0 4px 14px rgba(18, 18, 20, 0.35);
+  --shadow-gold-glow: 0 4px 18px rgba(197, 155, 39, 0.25);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-serif: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}

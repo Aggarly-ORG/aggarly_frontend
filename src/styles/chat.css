@@ -1,0 +1,292 @@
+/* =========================================================================
+   EMPTY STATE WELCOME HERO
+   ========================================================================= */
+
+.empty-welcome-hero {
+  margin: auto 0;
+  padding: 30px 10px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.empty-hero-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+  border: 1.5px solid rgba(223, 177, 91, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 16px rgba(223, 177, 91, 0.15);
+  color: #dfb15b;
+}
+
+.empty-hero-avatar-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent-coral);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-warm-md);
+}
+
+.empty-hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.empty-hero-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.empty-hero-subtitle {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 24px;
+}
+
+.empty-starter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.empty-starter-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--shadow-warm-sm);
+  transition: all 0.2s ease;
+}
+
+.empty-starter-card:hover {
+  transform: translateY(-2px);
+  border-color: #18181b;
+  box-shadow: 0 6px 20px rgba(197, 155, 39, 0.18);
+  background: #faf7ed;
+}
+
+.starter-card-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.starter-card-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.starter-card-desc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* =========================================================================
+   MESSAGE STREAM
+   ========================================================================= */
+
+.chat-stream-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 0 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+/* User Message */
+.chat-row-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 780px;
+  margin-left: auto;
+}
+
+.chat-meta-user {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+.chat-bubble-user {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: transparent;
+  padding: 0;
+  text-align: right;
+}
+
+/* Lumen Response */
+.chat-row-lumen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+
+.chat-meta-lumen {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.lumen-editorial-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 21px;
+  font-weight: 500;
+  color: #c59b27;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  max-width: 860px;
+}
+
+.lumen-narrative-text {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  max-width: 860px;
+}
+
+/* =========================================================================
+   BOTTOM COMPOSER DOCK
+   ========================================================================= */
+
+.bottom-dock-container {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.bottom-dock-container > * {
+  pointer-events: auto;
+}
+
+.btn-floating-inquiries-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: #18181b;
+  color: #dfb15b;
+  border: 1px solid rgba(223, 177, 91, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-floating-inquiries-toggle:hover {
+  background: #000000;
+  color: #f3cf7a;
+  border-color: #dfb15b;
+  transform: translateY(-2px);
+}
+
+.btn-floating-inquiries-toggle.active {
+  background: #000000;
+  border-color: #dfb15b;
+}
+
+.composer-dock-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 30px;
+  padding: 8px 14px 8px 22px;
+  box-shadow: var(--shadow-warm-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.composer-dock-pill:focus-within {
+  border-color: #18181b;
+  box-shadow: 0 4px 22px rgba(197, 155, 39, 0.18);
+}
+
+.composer-dock-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14.5px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.composer-dock-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.btn-dock-send {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #18181b;
+  color: #dfb15b;
+  border: 1px solid rgba(223, 177, 91, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dock-send:hover:not(:disabled) {
+  background: #000000;
+  color: #f3cf7a;
+  border-color: #dfb15b;
+  transform: scale(1.05);
+}
+
+.btn-dock-send:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

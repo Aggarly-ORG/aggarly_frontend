@@ -1,0 +1,779 @@
+/* ========================================================================= */
+/* LONA BY AGGARLY - NOCTURNAL SANCTUARY AUTHENTICATION PORTAL STYLESHEET    */
+/* ========================================================================= */
+
+.lona-page-root {
+  min-height: 100vh;
+  background: #f0f2f5;
+  color: #0b0e14;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.lona-page-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------------- */
+/* TOP NAVIGATION HEADER                                                     */
+/* ------------------------------------------------------------------------- */
+.lona-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background: transparent;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.lona-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #0b0e14;
+}
+
+.lona-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #0b0e14;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lona-brand-titles {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.lona-brand-name {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.lona-brand-sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #71717a;
+}
+
+.lona-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.lona-nav-item {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #3f3f46;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lona-nav-item:hover,
+.lona-nav-item.active {
+  color: #09090b;
+}
+
+.lona-zenith-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.lona-zenith-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-zenith 2.4s infinite ease-in-out;
+}
+
+@keyframes pulse-zenith {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.85); }
+}
+
+.lona-zenith-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #27272a;
+}
+
+/* ------------------------------------------------------------------------- */
+/* MAIN PORTAL CARD WRAPPER                                                  */
+/* ------------------------------------------------------------------------- */
+.lona-portal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px 36px;
+  width: 100%;
+}
+
+.lona-card-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  width: 100%;
+  max-width: 1180px;
+  min-height: 670px;
+  background: #04060a;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 110px -20px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+/* ------------------------------------------------------------------------- */
+/* LEFT PANEL: CELESTIAL EPHEMERIS & MOON                                    */
+/* ------------------------------------------------------------------------- */
+.lona-left-panel {
+  position: relative;
+  background: radial-gradient(ellipse 85% 75% at 22% 28%, #0e1522 0%, #06090e 45%, #030508 100%);
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: none;
+  box-sizing: border-box;
+  min-height: 640px;
+}
+
+.lona-celestial-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  width: fit-content;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.lona-pill-tag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #cbd5e1;
+}
+
+.lona-pill-sep {
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.lona-pill-class {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Moon Container: Positioned left, casting light eastward across the card */
+.lona-moon-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 18px 0 18px;
+  padding-left: 8px;
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+/* Realistic Moon Core Component Styles */
+.lona-moon-root {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  user-select: none;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lona-moon-ambient {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+  z-index: 1;
+}
+
+.lona-moon-sphere {
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lona-moon-sheen {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
+}
+
+.lona-headline-block {
+  z-index: 10;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.lona-headline-serif {
+  font-family: var(--font-serif);
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: #f8fafc;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.lona-headline-italic {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: #cbd5e1;
+  margin: 6px 0 16px;
+  line-height: 1.3;
+}
+
+.lona-subcaption {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #6d7b8b;
+  max-width: 440px;
+  margin: 0;
+}
+
+.lona-left-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  margin-top: auto;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.lona-sanctuary-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lona-status-dot-white {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+.lona-sanctuary-name {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.lona-geo-coords {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6c7887;
+  font-size: 10.5px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* RIGHT PANEL: PORTAL ACCESS FORM                                          */
+/* ------------------------------------------------------------------------- */
+.lona-right-panel {
+  background: linear-gradient(180deg, #05080d 0%, #030407 100%);
+  padding: 44px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: none;
+  box-sizing: border-box;
+}
+
+.lona-portal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #7d8b9b;
+}
+
+.lona-portal-version {
+  color: #4b5563;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/* Segmented Toggle Pills */
+.lona-mode-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  border-radius: 9999px;
+  margin: 18px 0 22px;
+}
+
+.lona-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: #788595;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lona-toggle-btn.active {
+  background: #f1f5f9;
+  color: #04060a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.lona-form-headings {
+  margin-bottom: 20px;
+}
+
+.lona-form-title {
+  font-family: var(--font-serif);
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: #f8fafc;
+  margin: 0 0 8px;
+}
+
+.lona-form-desc {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #6d7b8b;
+  margin: 0;
+}
+
+/* Active session banner */
+.lona-active-session-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.lona-session-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #252e3d;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.lona-session-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.lona-session-greet {
+  font-size: 11px;
+  color: #8190a2;
+}
+
+.lona-session-user {
+  font-size: 12.5px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.lona-session-action-btn {
+  background: #ffffff;
+  color: #0b0e14;
+  border: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Alerts */
+.lona-error-alert {
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fca5a5;
+  font-size: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.lona-success-alert {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+  font-size: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+/* Form layout */
+.lona-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lona-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lona-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lona-input-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #8c99a8;
+}
+
+.lona-label-with-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lona-lost-key-link {
+  background: none;
+  border: none;
+  color: #8090a2;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lona-lost-key-link:hover {
+  color: #cbd5e1;
+}
+
+.lona-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lona-input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 42px 12px 16px;
+  color: #f1f5f9;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.lona-input-field:focus {
+  border-color: rgba(215, 235, 255, 0.35);
+  box-shadow: 0 0 16px rgba(180, 215, 255, 0.08);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.lona-input-icon {
+  position: absolute;
+  right: 14px;
+  color: #4b5563;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.lona-eye-toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.lona-eye-toggle-btn:hover {
+  color: #cbd5e1;
+}
+
+.lona-form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 0 6px;
+}
+
+.lona-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #717f90;
+  cursor: pointer;
+}
+
+.lona-checkbox {
+  accent-color: #cbd5e1;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.lona-aes-badge {
+  font-size: 10.5px;
+  font-family: monospace;
+  color: #4b5563;
+  letter-spacing: 0.08em;
+}
+
+/* Primary Submit Button */
+.lona-submit-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f1f5f9;
+  color: #04060a;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 22px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  margin-top: 4px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.lona-submit-cta-btn:hover:not(:disabled) {
+  background: #ffffff;
+  box-shadow: 0 4px 26px rgba(225, 240, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.lona-submit-cta-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Divider */
+.lona-divider-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 14px;
+}
+
+.lona-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lona-divider-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #4b5563;
+}
+
+/* Social Grid */
+.lona-social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.lona-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 11px 16px;
+  color: #8c99a8;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lona-social-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+}
+
+/* Right Panel Footer */
+.lona-right-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: #7b8898;
+}
+
+.lona-protocol-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lona-concierge-protocol {
+  color: #556170;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------------------- */
+/* BOTTOM FOOTER                                                             */
+/* ------------------------------------------------------------------------- */
+.lona-bottom-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  font-size: 11.5px;
+  color: #71717a;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.lona-footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.lona-footer-link {
+  color: #71717a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lona-footer-link:hover {
+  color: #18181b;
+}
+
+/* ------------------------------------------------------------------------- */
+/* RESPONSIVE DESIGN                                                         */
+/* ------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .lona-card-container {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+
+  .lona-top-nav,
+  .lona-bottom-footer {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .lona-nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lona-left-panel,
+  .lona-right-panel {
+    padding: 28px 24px;
+  }
+
+  .lona-headline-serif,
+  .lona-headline-italic {
+    font-size: 20px;
+  }
+}

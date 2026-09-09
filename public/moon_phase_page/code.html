@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-secondary-fixed-variant": "#43474b",
+        "surface-container-highest": "#353438",
+        "hairline-on-light": "#DEDCD8",
+        "tertiary": "#ffffff",
+        "on-primary-container": "#646463",
+        "state-success": "#8FAE97",
+        "secondary": "#c3c7cc",
+        "primary-fixed-dim": "#c7c6c5",
+        "text-on-light-primary": "#151415",
+        "text-on-dark-primary": "#F5F4F1",
+        "text-on-light-secondary": "#8A8884",
+        "error": "#ffb4ab",
+        "primary": "#ffffff",
+        "on-background": "#e4e1e6",
+        "tertiary-fixed": "#dae4ed",
+        "tertiary-container": "#dae4ed",
+        "state-error": "#C77B6E",
+        "on-error": "#690005",
+        "secondary-container": "#454a4e",
+        "obsidian-base": "#0A0A0C",
+        "on-secondary-fixed": "#171c20",
+        "secondary-fixed-dim": "#c3c7cc",
+        "canvas-outer": "#EFEEEC",
+        "on-primary-fixed-variant": "#464746",
+        "error-container": "#93000a",
+        "secondary-fixed": "#dfe3e8",
+        "surface-bright": "#39393c",
+        "on-tertiary-container": "#5c666d",
+        "surface-container": "#1f1f22",
+        "inverse-surface": "#e4e1e6",
+        "tertiary-fixed-dim": "#bec8d0",
+        "text-on-dark-secondary": "#9A9A9F",
+        "outline": "#8e918f",
+        "surface-container-low": "#1b1b1e",
+        "on-secondary-container": "#b5b9be",
+        "primary-fixed": "#e3e2e0",
+        "surface-container-high": "#2a2a2d",
+        "surface-tint": "#c7c6c5",
+        "surface-container-lowest": "#0e0e11",
+        "surface-variant": "#353438",
+        "on-secondary": "#2c3135",
+        "on-surface-variant": "#c4c7c4",
+        "on-primary-fixed": "#1a1c1b",
+        "on-tertiary-fixed-variant": "#3e484f",
+        "on-tertiary": "#283238",
+        "obsidian-elevated": "#18181B",
+        "on-tertiary-fixed": "#131d23",
+        "hairline-on-dark": "#2A2A2E",
+        "on-primary": "#2f3130",
+        "inverse-primary": "#5e5e5d",
+        "surface": "#131316",
+        "obsidian-bubble": "#1E1D1C",
+        "inverse-on-surface": "#303033",
+        "on-surface": "#e4e1e6",
+        "surface-dim": "#131316",
+        "background": "#131316",
+        "on-error-container": "#ffdad6",
+        "outline-variant": "#444845",
+        "primary-container": "#e3e2e0"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-2xs": "0.25rem",
+        "space-xl": "2rem",
+        "space-md": "1rem",
+        "card-margin-desktop": "3.5rem",
+        "card-padding-desktop": "3rem",
+        "space-lg": "1.5rem",
+        "card-margin-mobile": "1rem",
+        "space-3xl": "4rem",
+        "space-xs": "0.5rem",
+        "card-padding-mobile": "1.5rem",
+        "space-sm": "0.75rem",
+        "space-22xl": "3rem"
+      },
+      "fontFamily": {
+        "data-tabular": ["Inter"],
+        "body-sm": ["Inter"],
+        "headline-lg": ["Playfair Display"],
+        "headline-lg-mobile": ["Playfair Display"],
+        "label-caps-sm": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Playfair Display"],
+        "headline-md": ["Playfair Display"],
+        "headline-xl-mobile": ["Playfair Display"],
+        "subline-editorial": ["Playfair Display"],
+        "label-caps-md": ["Inter"]
+      },
+      "fontSize": {
+        "data-tabular": ["13px", {"lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0.08em", "fontWeight": "400"}],
+        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "0.06em", "fontWeight": "400"}],
+        "label-caps-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.14em", "fontWeight": "500"}],
+        "body-md": ["14px", {"lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+        "headline-xl": ["44px", {"lineHeight": "52px", "letterSpacing": "0.12em", "fontWeight": "400"}],
+        "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+        "headline-xl-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "0.08em", "fontWeight": "400"}],
+        "subline-editorial": ["18px", {"lineHeight": "26px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+        "label-caps-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.12em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-canvas-outer min-h-screen text-text-on-light-primary selection:bg-surface-container selection:text-text-on-dark-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-canvas-outer/90 backdrop-blur-md border-b border-hairline-on-light"><div class="h-20 w-full max-w-7xl mx-auto px-space-md lg:px-card-margin-desktop flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Aggarly Crescent Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WmKaj0TT1dZFHIJVVF576sbhmJ-5mwCXLJ0lL4vDn4iKePQTo366ty7pth3ZIOvDLYwfFrYxAOUq9_E_yq4NPjIoqB-MlVaV1-wwbzClW61fjjw_xx-ZRMc20d6-0Kflh2XTrxktMyvVEfSIXv7VWdqfgyyZLSkZYJgACJcJZnpUx5qJtaw1CwS2N-mC5OA6kMxd7NnxPqKjCi_bQzSmffrPe3qMbg958oxIRd23zd9URob1pgtx9_ThI"/><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-wider text-text-on-light-primary leading-none">AGGARLY</span><span class="font-label-caps-sm text-label-caps-sm uppercase tracking-widest text-text-on-light-secondary mt-0.5">BY LONA</span></div></div><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-text-on-light-primary font-semibold border-b-2 border-text-on-light-primary pb-1"><a aria-current="page" class="uppercase tracking-widest transition-colors text-text-on-light-primary font-semibold border-b-2 border-text-on-light-primary pb-1" data-path="home" href="#">Home</a><a class="font-label-caps-md text-label-caps-md uppercase tracking-widest text-text-on-light-secondary hover:text-text-on-light-primary transition-colors" data-path="stays-and-retreats" href="#">Stays &amp; Retreats</a><a class="font-label-caps-md text-label-caps-md uppercase tracking-widest text-text-on-light-secondary hover:text-text-on-light-primary transition-colors" data-path="moon-phase" href="#">Moon Phase</a><a class="font-label-caps-md text-label-caps-md uppercase tracking-widest text-text-on-light-secondary hover:text-text-on-light-primary transition-colors" data-path="profile" href="#">Profile</a><a class="font-label-caps-md text-label-caps-md uppercase tracking-widest text-text-on-light-secondary hover:text-text-on-light-primary transition-colors" data-path="settings" href="#">Settings</a></nav><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full border border-hairline-on-light bg-tertiary/60 backdrop-blur-sm"><span class="w-1.5 h-1.5 rounded-full bg-state-success"></span><span class="font-data-tabular text-data-tabular text-text-on-light-secondary uppercase">WAXING GIBBOUS 88%</span></div><button class="relative p-space-xs rounded-full hover:bg-hairline-on-light/40 transition-colors text-text-on-light-secondary hover:text-text-on-light-primary flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-state-error"></span></button><div class="flex items-center pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-hairline-on-light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC50_k-McggBsBMSejBt7E27OZ9bUc-iT2xu0vRaQcXiETIaIiGH_pr7BA6yQSzcAD5E4d-Ar0Hck6hehzemYVhtcZHuKK0s1_mRJRHF9dJbrtvTIAG_CFzSPZ-gnbqeocnkL0U6S3M-sfWAOhlCTF7rm6KXgkuP2kxTE5hjeoNbdu60-bXC7Aeu7mvaTUGRagm5Yl1jx1PF6yFkWKrlZKbcvsLtDOlvi_zRrcyoUVLzviE0CAosLD-"/></div></div></div></header><main class="w-full pt-20 bg-canvas-outer min-h-[calc(100vh-80px)] flex flex-col justify-center"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-space-md lg:px-card-margin-desktop py-space-xl">
+<!-- Floating Obsidian Monolithic Card -->
+<div class="relative w-full rounded-[28px] bg-gradient-to-b from-obsidian-base to-[#121215] text-text-on-dark-primary shadow-[0_24px_48px_-12px_rgba(10,10,12,0.14),0_4px_16px_rgba(10,10,12,0.06)] overflow-hidden p-space-lg lg:p-card-padding-desktop">
+<!-- Ambient Light Cast Eastward -->
+<div class="pointer-events-none absolute -top-40 -left-20 w-96 h-96 rounded-full bg-[#DCE6EF]/10 blur-[100px]"></div>
+<div class="pointer-events-none absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[#18181B] blur-[120px] opacity-40"></div>
+<!-- 1. HERO CELESTIAL SECTION -->
+<section class="relative z-10 flex flex-col items-center text-center pt-space-md pb-space-2xl">
+<!-- Status Indicator Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-obsidian-elevated/90 backdrop-blur-md shadow-sm mb-space-lg">
+<span class="w-1.5 h-1.5 rounded-full bg-[#DCE6EF] animate-pulse"></span>
+<span class="font-label-caps-sm text-label-caps-sm uppercase tracking-widest text-[#C9CDD2]">Tonight's Lunar Cycle</span>
+</div>
+<!-- Moon Visualization with Multi-tier Light Bloom -->
+<div class="relative my-space-sm flex items-center justify-center">
+<!-- Multi-tier Radial Glows -->
+<div class="absolute w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] rounded-full bg-[#DCE6EF] opacity-[0.22] blur-[42px] pointer-events-none"></div>
+<div class="absolute w-[210px] h-[210px] rounded-full bg-[#F5F4F1] opacity-[0.14] blur-[22px] pointer-events-none"></div>
+<!-- Photoreal Lunar Graphic -->
+<div class="relative w-48 h-48 sm:w-[220px] sm:h-[220px] rounded-full flex items-center justify-center transition-transform duration-700 hover:scale-[1.02]">
+<img alt="Photorealistic Moon Waxing Gibbous Phase" class="w-full h-full object-contain filter drop-shadow-[0_12px_28px_rgba(220,230,239,0.25)] select-none pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBnmviIb1OhIBMwRdmv2yIa_g14HbP83j55umDvpzvs2DKVL2BBb4N07m0iO6C8zqg0w9ylSkgyDY3UQPDP_eED6WuL93g_BeTDwb14BmtNLRLq2FMqeyQuh0tM9i4Yq2V_5vUy8gcndhMd0dis6GZX3Amk1gvKeTRCo1f2rFlClt6nShvWNPQuGAyoPGAOmxm-9VbuOb9r3g2BE4tC1Ph8bwi-DdZpzGbSiYIo8cyfSZExBNC1BCbbLGtPQ131gynGg"/>
+</div>
+</div>
+<!-- Typography Block -->
+<div class="mt-space-md max-w-xl">
+<h1 class="font-headline-xl text-headline-xl text-text-on-dark-primary tracking-[0.16em] uppercase">Waning Gibbous</h1>
+<p class="font-subline-editorial text-subline-editorial italic text-text-on-dark-secondary mt-1">Aggarly by Lona — Celestial Ephemeris</p>
+</div>
+<!-- Lunar Stats Row (Tabular Numerals in Moonstone Grey) -->
+<div class="mt-space-xl w-full max-w-4xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-hairline-on-dark rounded-xl overflow-hidden shadow-inner">
+<div class="bg-obsidian-elevated/70 backdrop-blur-sm p-space-md flex flex-col items-center justify-center">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary tracking-widest">Illumination</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1 text-base">82% Luminous</span>
+</div>
+<div class="bg-obsidian-elevated/70 backdrop-blur-sm p-space-md flex flex-col items-center justify-center">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary tracking-widest">Moonrise</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1 text-base">20:42 PM</span>
+</div>
+<div class="bg-obsidian-elevated/70 backdrop-blur-sm p-space-md flex flex-col items-center justify-center">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary tracking-widest">Moonset</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1 text-base">07:18 AM</span>
+</div>
+<div class="bg-obsidian-elevated/70 backdrop-blur-sm p-space-md flex flex-col items-center justify-center col-span-2 sm:col-span-1">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary tracking-widest">Zenith Apex</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1 text-base">02:15 AM (54°)</span>
+</div>
+<div class="bg-obsidian-elevated/70 backdrop-blur-sm p-space-md flex flex-col items-center justify-center col-span-2 sm:col-span-2 lg:col-span-1">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary tracking-widest">Full Cycle</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1 text-base">Next Full: 6 Nights</span>
+</div>
+</div>
+</section>
+<!-- 2. 14-NIGHT LUNAR MONTH PHASE STRIP -->
+<section class="relative z-10 pt-space-2xl pb-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-xs">
+<div>
+<span class="font-label-caps-sm text-label-caps-sm uppercase tracking-[0.18em] text-[#C9CDD2] block mb-1">Observation Schedule</span>
+<h2 class="font-headline-lg text-headline-lg text-text-on-dark-primary tracking-wider uppercase">The Lunar Horizon</h2>
+</div>
+<p class="font-body-md text-body-md text-text-on-dark-secondary max-w-md">
+            Select any evening to reveal sanctuaries and architectural observatories curated for that night's sky conditions.
+          </p>
+</div>
+<!-- Horizontal Scrollable Horizon Strip -->
+<div class="relative w-full">
+<div class="flex gap-space-sm overflow-x-auto pb-space-md scrollbar-none snap-x snap-mandatory focus:outline-none" id="lunar-strip" tabindex="0">
+<!-- NOV 12 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Sun</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 12</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Waxing</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">98%</span>
+</button>
+<!-- NOV 13 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Mon</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 13</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">radio_button_checked</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Full</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">100%</span>
+</button>
+<!-- NOV 14 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Tue</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 14</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">brightness_medium</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Waning</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">94%</span>
+</button>
+<!-- NOV 15 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Wed</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 15</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">brightness_6</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Waning</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">89%</span>
+</button>
+<!-- TONIGHT: NOV 16 (ACTIVE HIGHLIGHT) -->
+<button class="flex-shrink-0 snap-start w-32 p-space-sm rounded-xl bg-surface-container-high relative shadow-[0_0_24px_rgba(220,230,239,0.15)] flex flex-col items-center text-center">
+<span class="absolute -top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#DCE6EF] shadow-[0_0_8px_#DCE6EF]"></span>
+<div class="inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-state-success"></span>
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-primary font-bold tracking-widest">Tonight</span>
+</div>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary font-semibold mt-0.5">Nov 16</span>
+<div class="w-9 h-9 my-space-xs rounded-full bg-obsidian-base flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[22px] text-[#DCE6EF]">dark_mode</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-primary font-medium">Gibbous</span>
+<span class="font-data-tabular text-data-tabular text-primary font-semibold mt-1">82%</span>
+</button>
+<!-- NOV 17 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Fri</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 17</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">brightness_5</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Gibbous</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">74%</span>
+</button>
+<!-- NOV 18 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Sat</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 18</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">brightness_4</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Gibbous</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">65%</span>
+</button>
+<!-- NOV 19 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Sun</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 19</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">nightlight</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Last Quarter</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">52%</span>
+</button>
+<!-- NOV 20 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Mon</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 20</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Crescent</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">41%</span>
+</button>
+<!-- NOV 21 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Tue</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 21</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Crescent</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">30%</span>
+</button>
+<!-- NOV 22 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Wed</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 22</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Crescent</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">19%</span>
+</button>
+<!-- NOV 23 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Thu</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 23</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Crescent</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">9%</span>
+</button>
+<!-- NOV 24 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Fri</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 24</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">Old Moon</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">2%</span>
+</button>
+<!-- NOV 25 -->
+<button class="flex-shrink-0 snap-start w-28 p-space-sm rounded-xl bg-obsidian-elevated/60 hover:bg-obsidian-elevated transition-all flex flex-col items-center text-center group">
+<span class="font-label-caps-sm text-label-caps-sm uppercase text-text-on-dark-secondary">Sat</span>
+<span class="font-data-tabular text-data-tabular text-text-on-dark-primary mt-0.5">Nov 25</span>
+<div class="w-8 h-8 my-space-xs rounded-full bg-surface-container flex items-center justify-center text-text-on-dark-secondary group-hover:text-text-on-dark-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">radio_button_unchecked</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary line-clamp-1">New Moon</span>
+<span class="font-data-tabular text-data-tabular text-[#C9CDD2] mt-1">0%</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3. BEST STAYS FOR TONIGHT'S SKY -->
+<section class="relative z-10 pt-space-2xl pb-space-2xl">
+<div class="mb-space-xl">
+<span class="font-label-caps-sm text-label-caps-sm uppercase tracking-[0.2em] text-[#C9CDD2] block mb-1">Architectural Alignment</span>
+<h2 class="font-headline-lg text-headline-lg text-text-on-dark-primary tracking-wide uppercase">Sanctuaries Under Tonight's Radiance</h2>
+<p class="font-subline-editorial text-subline-editorial italic text-text-on-dark-secondary mt-1">Curated architectural observatories aligned with an 82% luminous sky</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Card 1: Obsidian Observatory -->
+<article class="flex flex-col justify-between rounded-2xl bg-obsidian-elevated/70 backdrop-blur-md p-space-lg hover:bg-obsidian-elevated transition-all duration-300">
+<div>
+<div class="w-full h-52 rounded-xl mb-space-md overflow-hidden relative shadow-md">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Monolithic black volcanic stone astronomical observatory with an open slit dome under an intense starry night sky and radiant waning gibbous moon in the hyper-arid Atacama desert of Chile, architectural photography, cool-toned cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArkr7RBbwuaydTVKyfBWL-USR--0FZzEYqnib2bIlQ2_wLrWChyNO72Se3Hq0hvUJSuWVxJY0ulZwMSZQWJbjT8Eyqp8R1r5X__UdMO1lPts7i02g2DrlvBcKi95ErjfQeORRahUcHpNE7wuGwNcwiu_95ceEHnJ-MCWlMMmjw762FVhCdqMS-gNGhs7pRw0kmGs7kcEGjkMDH8rXP41VbFWzPIKa9vbSfgCHDvMfb9W7oI1OBt5dA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-base/90 via-transparent to-transparent"></div>
+<span class="absolute bottom-space-xs left-space-xs px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-caps-sm text-label-caps-sm uppercase text-[#C9CDD2] tracking-wider">Atacama, Chile</span>
+</div>
+<div class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-highest/60 text-[#DCE6EF] font-label-caps-sm text-label-caps-sm tracking-wider uppercase mb-space-xs">
+                Best For Lunar Crater Photography
+              </div>
+<h3 class="font-headline-md text-headline-md text-text-on-dark-primary tracking-wide mt-1">The Obsidian Observatory</h3>
+<!-- Lumen AI Note -->
+<div class="mt-space-md p-space-sm rounded-xl bg-obsidian-bubble/90 text-text-on-dark-secondary font-body-sm text-body-sm relative">
+<div class="flex items-center gap-1 text-[#C9CDD2] font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Lumen AI Sky Alignment</span>
+</div>
+                “82% gibbous creates high-contrast shadows across the Plato crater; our 14-inch motorized Schmidt-Cassegrain is pre-calibrated for moonrise at 20:42.”
+              </div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<div>
+<span class="font-headline-md text-headline-md text-text-on-dark-primary leading-none">$680</span>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary">/ night</span>
+</div>
+<button class="px-space-md py-2.5 rounded-full bg-[#F7F6F4] text-obsidian-base font-label-caps-md text-label-caps-md uppercase tracking-wider hover:bg-canvas-outer transition-colors flex items-center gap-1 group">
+<span>Reserve</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Lona Moon Pavilion -->
+<article class="flex flex-col justify-between rounded-2xl bg-obsidian-elevated/70 backdrop-blur-md p-space-lg hover:bg-obsidian-elevated transition-all duration-300">
+<div>
+<div class="w-full h-52 rounded-xl mb-space-md overflow-hidden relative shadow-md">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Minimalist dark cedar Japanese moon-viewing pavilion over a perfectly still shallow water basin reflecting the moon, surrounded by a tranquil Kyoto bamboo grove at dusk with gentle lanterns, serene meditative atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBULOFTN4Z5ueCvoOXT1EXsPTW48c9HRHNp-J-Ot3UOK-i0NVpPE_OT_KHDqRcaMaIDYV-SiQ9Tid0EfVrySQFkkw0Tp1-_jyJPdKwLHDYS7OnAWzyZlTAPMkpITBLm3NpKnDBXtUDZhjGHMigGpCMEHLOIjWEjjuG3zmekjY6mV16_3HZiSqjAtsQt6rdlVlrKvRVebNRzeeK65ELlHNIM1RGEO6mYtCzZ5ZSiQcCRGnhM67vB0sbM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-base/90 via-transparent to-transparent"></div>
+<span class="absolute bottom-space-xs left-space-xs px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-caps-sm text-label-caps-sm uppercase text-[#C9CDD2] tracking-wider">Kyoto, Japan</span>
+</div>
+<div class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-highest/60 text-[#DCE6EF] font-label-caps-sm text-label-caps-sm tracking-wider uppercase mb-space-xs">
+                Reflective Water Ritual
+              </div>
+<h3 class="font-headline-md text-headline-md text-text-on-dark-primary tracking-wide mt-1">Lona Moon Pavilion</h3>
+<!-- Lumen AI Note -->
+<div class="mt-space-md p-space-sm rounded-xl bg-obsidian-bubble/90 text-text-on-dark-secondary font-body-sm text-body-sm relative">
+<div class="flex items-center gap-1 text-[#C9CDD2] font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Lumen AI Sky Alignment</span>
+</div>
+                “Midnight water reflection ceremony synchronized with the moon clearing Mount Hiei at 23:10. Atmospheric clarity index 96%.”
+              </div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<div>
+<span class="font-headline-md text-headline-md text-text-on-dark-primary leading-none">$820</span>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary">/ night</span>
+</div>
+<button class="px-space-md py-2.5 rounded-full bg-[#F7F6F4] text-obsidian-base font-label-caps-md text-label-caps-md uppercase tracking-wider hover:bg-canvas-outer transition-colors flex items-center gap-1 group">
+<span>Reserve</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Dune Stargazer Sanctuary -->
+<article class="flex flex-col justify-between rounded-2xl bg-obsidian-elevated/70 backdrop-blur-md p-space-lg hover:bg-obsidian-elevated transition-all duration-300">
+<div>
+<div class="w-full h-52 rounded-xl mb-space-md overflow-hidden relative shadow-md">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Architectural solitude suite set upon towering copper dunes in the Namib Desert with an open kinetic retractable roof revealing the pristine starry sky and moon, modern rammed earth architecture, cinematic silence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWrMmjlb6TIbxWsG-hMZLzoLb0caOn--Kf05Rgb4Jn9edvzYrjX4VpZy41vCMQdI8lG8vM5Zb9L6HLeUxEtCLIHgj2fzzQM37HNy4o_PgOWW79EHaTImtjYYgfINkiOPlcax7kgqjk6-Wt-j-oRxJqFrGLc3xuaY4tSESZ75Yj8vJjF7Pa_TYGc9AdYGGdWWlGCp12Dn03r98fQCKlKveAnGAljFBOkXwXNsy9FOB-Qi0hT9Hbn6r"/>
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-base/90 via-transparent to-transparent"></div>
+<span class="absolute bottom-space-xs left-space-xs px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-caps-sm text-label-caps-sm uppercase text-[#C9CDD2] tracking-wider">Namib Desert</span>
+</div>
+<div class="inline-block px-2.5 py-0.5 rounded-full bg-surface-container-highest/60 text-[#DCE6EF] font-label-caps-sm text-label-caps-sm tracking-wider uppercase mb-space-xs">
+                Open Retractable Roof
+              </div>
+<h3 class="font-headline-md text-headline-md text-text-on-dark-primary tracking-wide mt-1">Dune Stargazer Sanctuary</h3>
+<!-- Lumen AI Note -->
+<div class="mt-space-md p-space-sm rounded-xl bg-obsidian-bubble/90 text-text-on-dark-secondary font-body-sm text-body-sm relative">
+<div class="flex items-center gap-1 text-[#C9CDD2] font-label-caps-sm text-label-caps-sm uppercase tracking-widest mb-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Lumen AI Sky Alignment</span>
+</div>
+                “Zero ambient light pollution allows pristine lunar corona observation over red dunes. Full motorized glass canopy retracts at moonset.”
+              </div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<div>
+<span class="font-headline-md text-headline-md text-text-on-dark-primary leading-none">$740</span>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary">/ night</span>
+</div>
+<button class="px-space-md py-2.5 rounded-full bg-[#F7F6F4] text-obsidian-base font-label-caps-md text-label-caps-md uppercase tracking-wider hover:bg-canvas-outer transition-colors flex items-center gap-1 group">
+<span>Reserve</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- 4. CELESTIAL NOTIFICATIONS & ALMANAC CONTROLS -->
+<section class="relative z-10 pt-space-xl mt-space-md">
+<div class="p-space-lg rounded-2xl bg-obsidian-elevated/80 backdrop-blur-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg shadow-sm">
+<!-- Left: Notification Toggles -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<!-- Toggle 1 -->
+<label class="flex items-center gap-space-sm cursor-pointer select-none group">
+<input checked="" class="sr-only peer" id="toggle-fullmoon" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container rounded-full peer peer-checked:bg-primary transition-colors relative">
+<div class="w-4 h-4 bg-obsidian-base rounded-full absolute top-0.5 left-0.5 peer-checked:translate-x-5 transition-transform"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-text-on-dark-primary group-hover:text-primary transition-colors">Full Moon 48h Warning</span>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary">Prompt dispatch for peak luminescence</span>
+</div>
+</label>
+<!-- Toggle 2 -->
+<label class="flex items-center gap-space-sm cursor-pointer select-none group">
+<input checked="" class="sr-only peer" id="toggle-stargaze" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container rounded-full peer peer-checked:bg-primary transition-colors relative">
+<div class="w-4 h-4 bg-obsidian-base rounded-full absolute top-0.5 left-0.5 peer-checked:translate-x-5 transition-transform"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-text-on-dark-primary group-hover:text-primary transition-colors">Deep Sky Conditions Alert</span>
+<span class="font-body-sm text-body-sm text-text-on-dark-secondary">Dispatched at 0% cloud cover &amp; low zenith light</span>
+</div>
+</label>
+</div>
+<!-- Right: Coordinates & Download CTA -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-md w-full lg:w-auto justify-between lg:justify-end">
+<div class="flex items-center gap-1.5 text-text-on-dark-secondary font-data-tabular text-data-tabular">
+<span class="material-symbols-outlined text-[16px] text-[#C9CDD2]">my_location</span>
+<span>35.6762° N · Kyoto Station</span>
+</div>
+<a class="inline-flex items-center justify-center gap-2 px-space-lg py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors font-label-caps-md text-label-caps-md uppercase tracking-wider text-text-on-dark-primary" href="#">
+<span>Celestial Almanac (PDF)</span>
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div></main><footer class="w-full bg-canvas-outer border-t border-hairline-on-light py-space-xl"><div class="max-w-7xl mx-auto px-space-md lg:px-card-margin-desktop flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="flex flex-col sm:flex-row items-center gap-space-xs sm:gap-space-md"><span class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary tracking-widest uppercase">© 2025 AGGARLY BY LONA. ALL RIGHTS RESERVED.</span><span class="hidden sm:inline text-hairline-on-light">•</span><span class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary tracking-widest uppercase">CELESTIAL ARCHITECTURAL SOLITUDE</span></div><div class="flex items-center gap-space-lg"><a class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary hover:text-text-on-light-primary uppercase tracking-widest transition-colors" href="#">Privacy</a><a class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary hover:text-text-on-light-primary uppercase tracking-widest transition-colors" href="#">Terms</a><a class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary hover:text-text-on-light-primary uppercase tracking-widest transition-colors" href="#">Support</a><a class="font-label-caps-sm text-label-caps-sm text-text-on-light-secondary hover:text-text-on-light-primary uppercase tracking-widest transition-colors" href="#">Astrological Almanac</a></div></div></footer></body></html>
